@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/routes/app_router.dart';
 import 'core/routes/app_routes.dart';
+import 'core/services/locale/locale_helper.dart';
+import 'core/utils/app_const/app_Const.dart';
 
 class BookiaApp extends StatelessWidget {
   const BookiaApp({super.key});
@@ -23,9 +25,16 @@ class BookiaApp extends StatelessWidget {
           fontFamily: 'DM',
           scaffoldBackgroundColor: AppColor.bgColor,
         ),
-        initialRoute: AppRoutes.welcomeScreen,
+        initialRoute: initalPage(),
         onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );
   }
+      String initalPage() {
+    if (LocaleHelper.prefs?.getString(AppConst.userToken) != null) {
+      return AppRoutes.bottonNavBarScreen;
+    } else {
+      return AppRoutes.loginScreen;
+    }
+      }
 }

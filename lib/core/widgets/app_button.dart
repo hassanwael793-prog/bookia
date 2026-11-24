@@ -1,3 +1,4 @@
+import 'package:bookia/core/theam/app_color.dart';
 import 'package:flutter/material.dart';
 
 import '../theam/app_text_style.dart';
@@ -32,7 +33,7 @@ class OnboardingButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: Text(text, style: AppTextStyle().hintStyle)),
+          Center(child: Text(text, style: AppTextStyle().font30regular.copyWith(fontSize: 15,color: AppColor.darkColor))),
           SizedBox(width: 3),
           if (icon != null) ...[Icon(icon, size: 18)],
         ],
