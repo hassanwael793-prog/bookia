@@ -1,6 +1,7 @@
 # 📚 Bookia
+**Developed by Hassan Elbalashony**
 
-**Bookia** is a modern, feature-rich mobile bookstore application built with **Flutter**, allowing users to browse, search, explore detailed book previews, and manage their shopping cart seamlessly.
+**Bookia** is a modern, feature-rich mobile bookstore application built with **Flutter**, allowing users to browse, search, explore detailed book previews, manage their shopping cart, and customize their profile seamlessly.
 
 ---
 
@@ -8,8 +9,9 @@
 - 🔐 **Authentication:** Secure login workflow with custom input validation (`RegExp`) and persistent session/token storage.
 - 🏠 **Home & Search:** Browse featured books and search through the catalog in real time.
 - 📖 **Rich Book Details:** Detailed book views featuring sliver app bars, metadata statistics, expandable descriptions, and shimmer loading states.
-- 🛒 **Shopping Cart & Checkout:** Full cart management to add, update, and order books effortlessly.
-- 🌍 **Localization & Custom Theming:** Multi-language support and unified color/typography system.
+- 🛒 **Shopping Cart & Checkout:** Full cart management to add, update, and order books effortlessly with empty/error/shimmer states.
+- 👤 **User Profile & Settings:** Complete profile management with user info sections, action buttons, and logout confirmation dialog.
+- 🌍 **Localization & Custom Theming:** Multi-language support and unified color/typography system with auto-generated asset references (`flutter_gen`).
 - 🏗️ **Clean Feature-First Architecture:** Modular codebase powered by `flutter_bloc` (Cubit) and `Dio`.
 
 ---
@@ -65,5 +67,111 @@ bookia/
 │   │       ├── app_button.dart
 │   │       └── custom_text_form.dart
 │   │
-│   └── features/                 # Feature-First Architecture modules
-│       ├── auth/                 # Authentication (Login & validation
+│   ├── features/                 # Feature-First Architecture modules
+│   │   │
+│   │   ├── auth/                 # Authentication (Login & validation)
+│   │   │   ├── data/
+│   │   │   │   └── rebo/
+│   │   │   │       └── auth_rebo.dart
+│   │   │   └── presantation/
+│   │   │       ├── cubit/
+│   │   │       │   ├── auth_cubit.dart
+│   │   │       │   └── auth_state.dart
+│   │   │       └── ui/
+│   │   │           ├── login_screen.dart
+│   │   │           └── widgets/
+│   │   │               └── login_form.dart
+│   │   │
+│   │   ├── welcom/               # Onboarding & Welcome screen
+│   │   │   └── presantation/
+│   │   │       └── ui/
+│   │   │           └── welcom_screen.dart
+│   │   │
+│   │   ├── bottom_nav_bar/       # Bottom navigation bar controller
+│   │   │   └── presentation/
+│   │   │       └── ui/
+│   │   │           └── bottom_nav_bar_screen.dart
+│   │   │
+│   │   ├── home/                 # Home feed & book search
+│   │   │   ├── data/
+│   │   │   │   └── models/
+│   │   │   │       ├── books_model.dart
+│   │   │   │       └── repo/
+│   │   │   │           └── home_Repo.dart
+│   │   │   └── presantation/
+│   │   │       ├── cubit/
+│   │   │       │   ├── home_cubit.dart
+│   │   │       │   └── home_state.dart
+│   │   │       └── ui/
+│   │   │           ├── home_screen.dart
+│   │   │           ├── search_screen.dart
+│   │   │           └── widgets/
+│   │   │               ├── book_iteam.dart
+│   │   │               └── home_app_bar.dart
+│   │   │
+│   │   ├── book_details/         # Detailed book view & metadata
+│   │   │   ├── data/
+│   │   │   │   ├── model/
+│   │   │   │   │   └── book_details_model.dart
+│   │   │   │   └── repo/
+│   │   │   │       └── book_details_repo.dart
+│   │   │   └── presentations/
+│   │   │       ├── cuibt/
+│   │   │       │   ├── book_details_cubit.dart
+│   │   │       │   └── book_details_state.dart
+│   │   │       ├── ui/
+│   │   │       │   └── book_details_screen.dart
+│   │   │       └── widgets/
+│   │   │           ├── book_bottom_action_bar.dart
+│   │   │           ├── book_details_error_view.dart
+│   │   │           ├── book_details_shimmer.dart
+│   │   │           ├── book_details_sliver_app_bar.dart
+│   │   │           ├── book_header_info.dart
+│   │   │           ├── book_meta_stats.dart
+│   │   │           └── expandable_description.dart
+│   │   │
+│   │   ├── cart/                 # Shopping cart & order management
+│   │   │   ├── data/
+│   │   │   │   ├── models/
+│   │   │   │   │   └── cart_responce.dart
+│   │   │   │   └── repo/
+│   │   │   │       └── cart_repo.dart
+│   │   │   └── presentation/
+│   │   │       ├── cubit/
+│   │   │       │   ├── cart_cubit.dart
+│   │   │       │   └── cart_state.dart
+│   │   │       └── ui/
+│   │   │           ├── cart_screen.dart
+│   │   │           └── widgets/
+│   │   │               ├── cart_app_bar.dart
+│   │   │               ├── cart_empty_view.dart
+│   │   │               ├── cart_error_view.dart
+│   │   │               ├── cart_item_card.dart
+│   │   │               ├── cart_shimmer.dart
+│   │   │               └── cart_summary_bar.dart
+│   │   │
+│   │   └── profile/              # User profile & account settings
+│   │       ├── data/
+│   │       │   ├── model/
+│   │       │   │   └── profile_model.dart
+│   │       │   └── repo/
+│   │       │       └── profile_repo.dart
+│   │       └── presentation/
+│   │           ├── cubit/
+│   │           │   ├── profile_cubit.dart
+│   │           │   └── profile_state.dart
+│   │           └── ui/
+│   │               ├── profile_screen.dart
+│   │               └── widgets/
+│   │                   ├── logout_dialog.dart
+│   │                   ├── profile_action_buttons.dart
+│   │                   ├── profile_app_bar.dart
+│   │                   ├── profile_error_view.dart
+│   │                   ├── profile_header_card.dart
+│   │                   ├── profile_info_section.dart
+│   │                   ├── profile_menu_section.dart
+│   │                   └── profile_shimmer.dart
+│   │
+│   └── gen/                      # Auto-generated asset & font references
+│       ├── assets.gen.dart
+│       └── fonts.gen.dart
