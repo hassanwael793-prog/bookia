@@ -139,3 +139,18 @@ bookia/
 │               │   └── cart_state.dart
 │               └── ui/
 │                   └── ...       # Cart screens & widgets
+
+---
+
+## 👨‍💻 Author
+
+**Hassan Elbalashony**
+
+- 🐙 **GitHub:** [@your-username](https://github.com/your-username)
+- 💼 **LinkedIn:** [Hassan Elbalashony](https://linkedin.com/in/your-profile) *(Optional - remove if not needed)*
+
+---
+
+<p align="center">
+  Made with ❤️ using Flutter
+</p>
